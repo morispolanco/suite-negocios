@@ -69,10 +69,6 @@ if app_selection == "Generación de Plan de Negocios":
         if idea_negocio and pais:
             with st.spinner("Buscando datos de mercado y generando plan..."):
                 resultados_busqueda = buscar_informacion(idea_negocio, pais)
-
-                st.write("Datos crudos obtenidos de la búsqueda del Serper API:")
-                st.json(resultados_busqueda)  # Debug step
-
                 plan_negocio = ""
 
                 for item in resultados_busqueda.get("organic", []):
@@ -107,10 +103,6 @@ elif app_selection == "Generación de Propuestas de Negocios":
         if idea_propuesta and pais:
             with st.spinner("Buscando datos de mercado y generando propuesta..."):
                 resultados_busqueda = buscar_informacion(idea_propuesta, pais)
-
-                st.write("Datos crudos obtenidos de la búsqueda del Serper API:")
-                st.json(resultados_busqueda)  # Debug step
-
                 propuesta_negocio = ""
 
                 for item in resultados_busqueda.get("organic", []):
@@ -145,10 +137,6 @@ elif app_selection == "Análisis de Mercado":
         if mercado and pais:
             with st.spinner("Buscando datos de mercado y generando análisis..."):
                 resultados_busqueda = buscar_informacion(mercado, pais)
-
-                st.write("Datos crudos obtenidos de la búsqueda del Serper API:")
-                st.json(resultados_busqueda)  # Debug step
-
                 analisis_mercado = ""
 
                 for item in resultados_busqueda.get("organic", []):
@@ -183,10 +171,6 @@ elif app_selection == "Desarrollo de Estrategia Empresarial":
         if estrategia and pais:
             with st.spinner("Buscando información y desarrollando estrategia..."):
                 resultados_busqueda = buscar_informacion(estrategia, pais)
-
-                st.write("Datos crudos obtenidos de la búsqueda del Serper API:")
-                st.json(resultados_busqueda)  # Debug step
-
                 estrategia_empresarial = ""
 
                 for item in resultados_busqueda.get("organic", []):
@@ -221,10 +205,6 @@ elif app_selection == "Proyecciones Financieras":
         if empresa and pais:
             with st.spinner("Buscando información financiera y generando proyecciones..."):
                 resultados_busqueda = buscar_informacion(empresa, pais)
-
-                st.write("Datos crudos obtenidos de la búsqueda del Serper API:")
-                st.json(resultados_busqueda)  # Debug step
-
                 proyecciones_financieras = ""
 
                 for item in resultados_busqueda.get("organic", []):
