@@ -69,11 +69,15 @@ if app_selection == "Generación de Plan de Negocios":
         if idea_negocio and pais:
             with st.spinner("Buscando datos de mercado y generando plan..."):
                 resultados_busqueda = buscar_informacion(idea_negocio, pais)
+                snippets_usados = set()
                 plan_negocio = ""
 
                 for item in resultados_busqueda.get("organic", []):
                     snippet = item.get("snippet", "")
-                    plan_negocio += generar_contenido(f"Genera un plan de negocios basado en la siguiente información en {pais}: {snippet}")
+                    if snippet not in snippets_usados:
+                        contenido_generado = generar_contenido(f"Genera un plan de negocios basado en la siguiente información en {pais}: {snippet}")
+                        snippets_usados.add(snippet)
+                        plan_negocio += contenido_generado + "\n\n"
 
                 # Mostrar el plan de negocios
                 st.subheader("Plan de Negocios Generado")
@@ -103,11 +107,15 @@ elif app_selection == "Generación de Propuestas de Negocios":
         if idea_propuesta and pais:
             with st.spinner("Buscando datos de mercado y generando propuesta..."):
                 resultados_busqueda = buscar_informacion(idea_propuesta, pais)
+                snippets_usados = set()
                 propuesta_negocio = ""
 
                 for item in resultados_busqueda.get("organic", []):
                     snippet = item.get("snippet", "")
-                    propuesta_negocio += generar_contenido(f"Genera una propuesta de negocio basada en la siguiente información en {pais}: {snippet}")
+                    if snippet not in snippets_usados:
+                        contenido_generado = generar_contenido(f"Genera una propuesta de negocio basada en la siguiente información en {pais}: {snippet}")
+                        snippets_usados.add(snippet)
+                        propuesta_negocio += contenido_generado + "\n\n"
 
                 # Mostrar la propuesta de negocio
                 st.subheader("Propuesta de Negocios Generada")
@@ -137,11 +145,15 @@ elif app_selection == "Análisis de Mercado":
         if mercado and pais:
             with st.spinner("Buscando datos de mercado y generando análisis..."):
                 resultados_busqueda = buscar_informacion(mercado, pais)
+                snippets_usados = set()
                 analisis_mercado = ""
 
                 for item in resultados_busqueda.get("organic", []):
                     snippet = item.get("snippet", "")
-                    analisis_mercado += generar_contenido(f"Realiza un análisis de mercado basado en la siguiente información en {pais}: {snippet}")
+                    if snippet not in snippets_usados:
+                        contenido_generado = generar_contenido(f"Realiza un análisis de mercado basado en la siguiente información en {pais}: {snippet}")
+                        snippets_usados.add(snippet)
+                        analisis_mercado += contenido_generado + "\n\n"
 
                 # Mostrar el análisis de mercado
                 st.subheader("Análisis de Mercado Generado")
@@ -171,11 +183,15 @@ elif app_selection == "Desarrollo de Estrategia Empresarial":
         if estrategia and pais:
             with st.spinner("Buscando información y desarrollando estrategia..."):
                 resultados_busqueda = buscar_informacion(estrategia, pais)
+                snippets_usados = set()
                 estrategia_empresarial = ""
 
                 for item in resultados_busqueda.get("organic", []):
                     snippet = item.get("snippet", "")
-                    estrategia_empresarial += generar_contenido(f"Desarrolla una estrategia empresarial basada en la siguiente información en {pais}: {snippet}")
+                    if snippet not in snippets_usados:
+                        contenido_generado = generar_contenido(f"Desarrolla una estrategia empresarial basada en la siguiente información en {pais}: {snippet}")
+                        snippets_usados.add(snippet)
+                        estrategia_empresarial += contenido_generado + "\n\n"
 
                 # Mostrar la estrategia empresarial
                 st.subheader("Estrategia Empresarial Generada")
@@ -205,11 +221,15 @@ elif app_selection == "Proyecciones Financieras":
         if empresa and pais:
             with st.spinner("Buscando información financiera y generando proyecciones..."):
                 resultados_busqueda = buscar_informacion(empresa, pais)
+                snippets_usados = set()
                 proyecciones_financieras = ""
 
                 for item in resultados_busqueda.get("organic", []):
                     snippet = item.get("snippet", "")
-                    proyecciones_financieras += generar_contenido(f"Genera proyecciones financieras para la empresa o sector basado en la siguiente información en {pais}: {snippet}")
+                    if snippet not in snippets_usados:
+                        contenido_generado = generar_contenido(f"Genera proyecciones financieras para la empresa o sector basado en la siguiente información en {pais}: {snippet}")
+                        snippets_usados.add(snippet)
+                        proyecciones_financieras += contenido_generado + "\n\n"
 
                 # Mostrar las proyecciones financieras
                 st.subheader("Proyecciones Financieras Generadas")
