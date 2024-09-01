@@ -163,9 +163,9 @@ elif app_selection == "Análisis de Mercado":
                 doc = create_docx("Análisis de Mercado", {"Análisis de Mercado": analisis_mercado})
                 buffer = BytesIO()
                 doc.save(buffer)
-                buffer.seek 0())
+                buffer.seek(0)
                 st.download_button(
-                    label("Descargar Análisis de Mercado en DOCX"),
+                    label="Descargar Análisis de Mercado en DOCX",
                     data=buffer,
                     file_name=f"Analisis_Mercado_{mercado.replace(' ', '_')}.docx",
                     mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
